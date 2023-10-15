@@ -1,13 +1,15 @@
-ARG VERSION=bullseye-slim
-From debian:latest
+
+From ubuntu:latest As build
 
 
-RUN apt update
-RUN apt -y install openjdk-17-jdk 
+RUN apt-get update
+RUN apt-get install openjdk-17-jdk -y
+
+FROM openjdk:17-jdk-slim
 
 COPY . .
 
-RUN apt -y install maven 
+RUN apt-get install maven -y 
 RUN mvn clean install
 
 EXPOSE 8080

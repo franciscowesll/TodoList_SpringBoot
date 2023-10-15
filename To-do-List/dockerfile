@@ -1,5 +1,5 @@
 
-From ubuntu:latest As build
+From ubuntu:22.04 As build
 
 
 RUN apt-get update
